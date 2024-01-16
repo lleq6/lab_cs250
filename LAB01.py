@@ -1,0 +1,19 @@
+ID = int(input("Enter your Student ID : "))
+Section = int(input("Enter your Section : "))
+Sum = ID * Section
+Length = len(str(Sum))
+print(f"Summary of multiply = {Sum} ({Sum:b}) Length = {Length}")
+Size = 15 if Length > 15 else Length
+Start = Length - Size
+End = Length - 5
+Answer = int(str(Sum)[Start:End])
+Binary = str(f"{Answer:b}")
+print(f"Answer position 6th - {Size}th = {Answer} ({Binary})")
+A = Answer >> 2 & int(Binary[-6:-2], 2)
+B = Answer >> 6 & int(Binary[-10:-6], 2)
+print(f"A : bit position 3 - 6 = {A} ({A:04b})")
+print(f"B : bit position 7 - 10 = {B} ({B:04b})")
+Answer2 = A ^ B
+Answer3 = A | B
+print(f"Answer 1 (A [{A:b}] ^ B [{B:b}]) = {Answer2} ({Answer2:04b})")
+print(f"Answer 2 (A [{A:b}] | B [{B:b}]) = {Answer3} ({Answer3:04b})")
